@@ -1,0 +1,3 @@
+rootProject.name = 'Tastelee'
+
+include ':app'
