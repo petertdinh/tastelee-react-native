@@ -6,6 +6,8 @@ import { StyleSheet, Text, View, TextInput, Navigator } from 'react-native';
 import * as firebase from 'firebase';
 import reducers from '../reducers/index'
 import Landing from './landing/landing';
+import Index from './landing/index';
+import Add from './available/add';
 
 const config = {
   apiKey: "AIzaSyDjnRi9bFYzpuS3yw-c2gDfPlV5y5BCRrE",
@@ -17,6 +19,8 @@ firebase.initializeApp(config);
 
 const routes = {
   landing: Landing,
+  index: Index,
+  add: Add,
 }
 
 const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);

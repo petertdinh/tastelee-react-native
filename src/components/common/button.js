@@ -4,8 +4,8 @@ import { Text, StyleSheet, TouchableHighlight } from 'react-native';
 export default class Button extends Component {
 	render() {
 		return (
-			<TouchableHighlight style={styles.button} underlayColor={'blue'} onPress={this.props.onPress}>
-				<Text style={styles.buttonText}>{this.props.text}</Text>
+			<TouchableHighlight style={[styles.button, this.props.style]} underlayColor={'grey'} onPress={this.props.onPress}>
+				<Text style={[styles.buttonText, this.props.buttonText]}>{this.props.text}</Text>
 			</TouchableHighlight>
 		)
 	}

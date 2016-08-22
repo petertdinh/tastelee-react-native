@@ -3,6 +3,11 @@ import { View, Text, StyleSheet } from 'react-native';
 import Button from '../common/button';
 
 export default class Landing extends Component {
+
+	getStarted = () => {
+		this.props.navigator.push({name: 'index'})
+	}
+
 	render() {
 		return(
 			<View style={styles.container}>
@@ -17,7 +22,7 @@ export default class Landing extends Component {
 				<View style={styles.button}>
 					<Button
 					 text={`Let's get started`}
-					 onPress={} />
+					 onPress={this.getStarted} />
 				 </View>
 			</View>
 		)
