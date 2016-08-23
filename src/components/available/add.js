@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Text, View, StyleSheet, ScrollView, TextInput } from 'react-native';
+import { fetchRecipesWithIngredients } from '../../actions/index';
 import Button from '../common/button';
 
-export default class Add extends Component {
+class Add extends Component {
 	constructor(props) {
 		super(props);
 		this.state = { ingredients: [], text: '' };
@@ -10,13 +12,13 @@ export default class Add extends Component {
 
 	addIngredient = () => {
 		if(this.state.text !== '') {
-			this.setState({ingredients: [...this.state.ingredients, this.state.text]});
+			this.setState({ingredients: [this.state.text, ...this.state.ingredients]});
 			this.setState({text: ''});
 		}
 	};
 
 	submitIngredients = () => {
-		console.log(this.state.text);
+		fetchRecipesWithIngredients(this.state.ingredients);
 	}
 
 	render() {
@@ -47,6 +49,7 @@ export default class Add extends Component {
 				</ScrollView>
 				<View style={styles.footer}>
 					<Button
+					 style={styles.showRecipeButton}
 					 text={`Show me some recipes!`}
 					 onPress={this.submitIngredients} />
 				</View>
@@ -65,6 +68,9 @@ const styles = StyleSheet.create({
 	},
 	footer: {
 		flex: 1,
+		flexDirection: 'row',
+		alignItems: 'center',
+		justifyContent: 'center',
 	},
 	body: {
 		flex: 5,
@@ -95,16 +101,23 @@ const styles = StyleSheet.create({
 	  padding: 4,
 	  marginRight: 5,
 	  flex: 4,
-	  fontSize: 18,
+	  fontSize: 20,
 	  borderWidth: 1,
 	  borderColor: '#48afdb',
 	  borderRadius: 4,
 	  color: '#48BBEC',
 	  flexDirection: 'row',
-	  marginTop: 17
+	  marginTop: 17,
 	},
 	ingredient: {
 		fontSize: 20,
 		padding: 1,
+		color: '#48BBEC',
+	},
+	showRecipeButton: {
+		backgroundColor: '#48AFDB',
+		marginBottom: 8,
 	},
 });
+
+export default connect(null, { fetchRecipesWithIngredients })(Add)
