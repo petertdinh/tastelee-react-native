@@ -5,6 +5,6 @@ export const API_URL = {
   FIND_BY_INGREDIENTS: "recipes/findByIngredients",
   FIND_BY_INGREDIENTS_TAIL: "&limitLicense=false&number=3&ranking=1",
   RECIPE_INFORMATION: "recipes/",
-  RECIPE_INFORMATION_TAIL: "/information?includeNutrition=false"
+  RECIPE_INFORMATION_TAIL: "/information?includeNutrition=false",
   key: key
 };

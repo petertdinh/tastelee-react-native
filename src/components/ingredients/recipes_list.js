@@ -5,12 +5,23 @@ import RecipeItem from './recipe_item';
 import { setCurrentRecipe } from '../../actions/set_current_recipe';
 
 class RecipesFromIngredients extends Component {
+	constructor(props){
+		super(props);
+		this.state = { recipes: [] };
+	}
+
+	componentDidUpdate() {
+		if(this.props.recipes !== this.state.recipes){
+			this.setState({ recipes: this.props.recipes });
+		}
+	}
+
 	setCurrentRecipe = (id) => {
 		this.props.setCurrentRecipe(id);
 	}
 
 	render() {
-		const recipes = this.props.recipes.map((recipe, index) => {
+		const recipes = this.state.recipes.map((recipe, index) => {
 			return <RecipeItem
 							onPress={this.setCurrentRecipe}
 							key={recipe.id}
@@ -18,7 +29,7 @@ class RecipesFromIngredients extends Component {
 							title={recipe.title} />
 		});
 
-		if(!this.props.recipes.length) {
+		if(!this.state.recipes.length) {
 			return(
 				<View>
 					<Text>Fetching Recipes...</Text>
@@ -36,7 +47,7 @@ class RecipesFromIngredients extends Component {
 
 const mapStateToProps = (state) => {
 	return {
-		recipes: state.fromIngredients.recipe
+		recipes: state.fromIngredients.recipes
 	};
 }
 

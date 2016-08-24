@@ -4,18 +4,18 @@ import { View, Text, StyleSheet, Image, TouchableHighlight } from 'react-native'
 export default class RecipeItem extends Component {
 	render() {
 		return(
-			<View>
-				<TouchableHighlight style={styles.button} onPress={this.props.onPress}>
-					<Image uri={this.props.imageURI}/>
+			<View style={styles.container}>
+					<Image
+						source={{uri: this.props.imageURI}}
+						style={{width: 100, height: 100}}/>
 					<Text>{this.props.title}</Text>
-				</TouchableHighlight>
 			</View>
 		)
 	}
 }
 
 const styles = StyleSheet.create({
-	button: {
+	container: {
 		flexDirection: 'row'
 	}
 })

@@ -1,4 +1,4 @@
-import API_URL from './api_endpoints';
+import { API_URL } from './api_endpoints';
 import * as TYPES from './action_types.js';
 
 export const fetchRecipesWithIngredients = (ingredients) => {
@@ -26,7 +26,6 @@ export const fetchRecipesWithIngredients = (ingredients) => {
 		fetch(url, config)
 			.then(resp => resp.json())
 			.then((json) => {
-				console.log(json);
 				dispatch({type: TYPES.RECIPES_FROM_INGREDIENTS, payload: json});
 			})
 			.catch(err => console.error(err));
