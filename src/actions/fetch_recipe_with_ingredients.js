@@ -1,4 +1,4 @@
-import { API_URL } from './api_endpoints';
+import { API_URL, config } from './api_endpoints';
 import * as TYPES from './action_types.js';
 
 export const fetchRecipesWithIngredients = (ingredients) => {
@@ -13,15 +13,6 @@ export const fetchRecipesWithIngredients = (ingredients) => {
 			}
 		});
 		const url = `${API_URL.BASE}${API_URL.FIND_BY_INGREDIENTS}?ingredients=${ingredientsParam}${API_URL.FIND_BY_INGREDIENTS_TAIL}`;
-
-		const myHeaders = new Headers({
-			"X-Mashape-Key": API_URL.key
-		});
-
-		const config = {
-			method: 'GET',
-			headers: myHeaders
-		};
 
 		fetch(url, config)
 			.then(resp => resp.json())

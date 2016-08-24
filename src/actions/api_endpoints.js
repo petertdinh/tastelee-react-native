@@ -7,5 +7,13 @@ export const API_URL = {
   RECIPE_INFORMATION: "recipes/",
   RECIPE_INGREDIENTS: "/information?includeNutrition=false",
   RECIPE_INSTRUCTIONS: "/analyzedInstructions?stepBreakdown=true"
-  key: key
 };
+
+const myHeaders = new Headers({
+	"X-Mashape-Key": key
+});
+
+export const config = {
+	method: 'GET',
+	headers: myHeaders
+}

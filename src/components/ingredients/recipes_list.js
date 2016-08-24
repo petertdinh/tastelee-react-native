@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { View, Text, StyleSheet } from 'react-native';
 import RecipeItem from './recipe_item';
-import { setCurrentRecipe } from '../../actions/set_current_recipe';
+import { setActiveRecipe } from '../../actions/set_active_recipe';
 
 class RecipesFromIngredients extends Component {
 	constructor(props){
@@ -16,15 +16,15 @@ class RecipesFromIngredients extends Component {
 		}
 	}
 
-	setCurrentRecipe = (id) => {
-		this.props.setCurrentRecipe(id);
+	setActiveRecipe = (id) => {
+		this.props.setActiveRecipe(id);
 		this.props.navigator.push({name: 'activeRecipe'});
 	}
 
 	render() {
 		const recipes = this.state.recipes.map((recipe, index) => {
 			return <RecipeItem
-							onPress={this.setCurrentRecipe}
+							onPress={this.setActiveRecipe}
 							id={recipe.id}
 							key={index}
 							imageURI={recipe.image}
@@ -53,4 +53,4 @@ const mapStateToProps = (state) => {
 	};
 }
 
-export default connect(mapStateToProps, { setCurrentRecipe })(RecipesFromIngredients)
+export default connect(mapStateToProps, { setActiveRecipe })(RecipesFromIngredients)
