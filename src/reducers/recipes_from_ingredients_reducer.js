@@ -1,10 +1,10 @@
-import { RECIPES_FROM_INGREDIENTS } from '../actions/index';
+import * as TYPES from '../actions/action_types';
 
 export default function(state = {
 	recipes: []
 }, action){
 	switch(action.type){
-		case RECIPES_FROM_INGREDIENTS:
+		case TYPES.RECIPES_FROM_INGREDIENTS:
 			return {...state, recipes: action.payload };
 		default:
 			return state;

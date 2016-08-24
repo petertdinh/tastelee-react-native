@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Text, View, StyleSheet, ScrollView, TextInput } from 'react-native';
-import { fetchRecipesWithIngredients } from '../../actions/index';
+import { fetchRecipesWithIngredients } from '../../actions/fetch_recipe_with_ingredients';
 import Button from '../common/button';
 
 class Add extends Component {
@@ -18,7 +18,8 @@ class Add extends Component {
 	};
 
 	submitIngredients = () => {
-		fetchRecipesWithIngredients(this.state.ingredients);
+		this.props.fetchRecipesWithIngredients(this.state.ingredients);
+		this.props.navigator.push({name: 'recipesFromIngredients'});
 	}
 
 	render() {

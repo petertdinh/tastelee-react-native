@@ -7,7 +7,9 @@ import * as firebase from 'firebase';
 import reducers from '../reducers/index'
 import Landing from './landing/landing';
 import Index from './landing/index';
-import Add from './available/add';
+import Add from './ingredients/add';
+import RecipesFromIngredients from './ingredients/recipes_list';
+import * as CurrentRecipe from './ingredients/recipe_item';
 
 const config = {
   apiKey: "AIzaSyDjnRi9bFYzpuS3yw-c2gDfPlV5y5BCRrE",
@@ -21,6 +23,8 @@ const routes = {
   landing: Landing,
   index: Index,
   add: Add,
+  recipesFromIngredients: RecipesFromIngredients,
+  currentRecipe: CurrentRecipe,
 }
 
 const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
