@@ -5,7 +5,7 @@ export default function(state = {
 }, action){
 	switch(action.type){
 		case TYPES.RECIPES_FROM_INGREDIENTS:
-			return {...state, recipes: action.payload };
+			return {...state, recipes: action.payload};
 		default:
 			return state;
 	}

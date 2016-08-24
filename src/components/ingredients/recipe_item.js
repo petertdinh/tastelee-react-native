@@ -4,7 +4,7 @@ import { View, Text, StyleSheet, Image, TouchableHighlight } from 'react-native'
 export default class RecipeItem extends Component {
 	render() {
 		return(
-			<View style={styles.container}>
+			<View style={styles.container} onPress={this.props.onPress(this.props.id)}>
 					<Image
 						source={{uri: this.props.imageURI}}
 						style={{width: 100, height: 100}}/>

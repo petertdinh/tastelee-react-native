@@ -9,7 +9,7 @@ import Landing from './landing/landing';
 import Index from './landing/index';
 import Add from './ingredients/add';
 import RecipesFromIngredients from './ingredients/recipes_list';
-import * as CurrentRecipe from './ingredients/recipe_item';
+import ActiveRecipe from './ingredients/active_recipe';
 
 const config = {
   apiKey: "AIzaSyDjnRi9bFYzpuS3yw-c2gDfPlV5y5BCRrE",
@@ -24,7 +24,7 @@ const routes = {
   index: Index,
   add: Add,
   recipesFromIngredients: RecipesFromIngredients,
-  currentRecipe: CurrentRecipe,
+  activeRecipe: ActiveRecipe,
 }
 
 const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);

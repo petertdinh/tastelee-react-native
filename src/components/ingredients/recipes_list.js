@@ -18,13 +18,15 @@ class RecipesFromIngredients extends Component {
 
 	setCurrentRecipe = (id) => {
 		this.props.setCurrentRecipe(id);
+		this.props.navigator.push({name: 'activeRecipe'});
 	}
 
 	render() {
 		const recipes = this.state.recipes.map((recipe, index) => {
 			return <RecipeItem
 							onPress={this.setCurrentRecipe}
-							key={recipe.id}
+							id={recipe.id}
+							key={index}
 							imageURI={recipe.image}
 							title={recipe.title} />
 		});
