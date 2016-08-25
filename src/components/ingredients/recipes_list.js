@@ -16,8 +16,8 @@ class RecipesFromIngredients extends Component {
 		}
 	}
 
-	setActiveRecipe = (id) => {
-		this.props.setActiveRecipe(id);
+	setActiveRecipe = (id, imageURI, title) => {
+		this.props.setActiveRecipe(id, imageURI, title);
 		this.props.navigator.push({name: 'activeRecipe'});
 	}
 
